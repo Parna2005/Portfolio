@@ -1,0 +1,50 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Button click event for hero section
+    const heroButton = document.createElement("button");
+    heroButton.textContent = "Shop Now";
+    heroButton.style.padding = "10px 20px";
+    heroButton.style.fontSize = "16px";
+    heroButton.style.backgroundColor = "#6a8f6b";
+    heroButton.style.color = "white";
+    heroButton.style.border = "none";
+    heroButton.style.cursor = "pointer";
+    
+    document.getElementById("hero").appendChild(heroButton);
+    heroButton.addEventListener("click", function () {
+        alert("Redirecting to shop page...");
+        window.location.href = "#products";
+    });
+
+    // Contact form submission
+    const contactForm = document.querySelector("form");
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Thank you for your message! We will get back to you soon.");
+        contactForm.reset();
+    });
+
+    // Swiper configuration for manual navigation
+    const swiperConfig = {
+        loop: true,
+        speed: 600,
+        autoplay: false, // Disable autoplay
+        slidesPerView: "auto",
+        pagination: {
+            el: ".swiper-pagination",
+            type: "bullets",
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
+    };
+
+    // Image click event to open project details page
+    document.querySelectorAll(".product img").forEach(img => {
+        img.addEventListener("click", function () {
+            const projectId = this.getAttribute("data-project-id");
+            window.location.href = `project.html?id=${projectId}`;
+        });
+    });
+});

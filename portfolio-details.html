@@ -95,7 +95,7 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
 
-              <script type="application/json" class="swiper-config">
+              <script type="application/json" class=" const swiperConfig">
                 {
                   "loop": true,
                   "speed": 600,
@@ -111,49 +111,26 @@
                 }
               </script>
 
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/1984-Horizontal-Ad.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/potio-family.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/mood.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/mood-2.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Project</strong>: Web design</li>
-                <li><strong>Client</strong>: Myself</li>
-                <li><strong>Project date</strong>: 18 March, 2025</li>
-              </ul>
-            </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Learning how to code usind VS Code</h2>
-              <p>
-                Learning and exploring the digital domain using html, CSS and Java Script, to create engaging websites wit UI/UX.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
+              <section id="gallery">
+                <button id="prev">⟨ Prev</button>
+                <img id="gallery-image" src="assets/img/portfolio/" alt="Project Image">
+                <button id="next">Next ⟩</button>
+            </section>
+        
+            <script>
+                const images = ["assets/img/portfolio/1984-Horizontal-Ad.png", "assets/img/portfolio/1984-Horizontal-Ad.png", "image3.jpg"];
+                let currentIndex = 2;
+        
+                document.getElementById("next").addEventListener("click", function () {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    document.getElementById("gallery-image").src = images[currentIndex];
+                });
+        
+                document.getElementById("prev").addEventListener("click", function () {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    document.getElementById("gallery-image").src = images[currentIndex];
+                });
+            </script>
 
     </section><!-- /Portfolio Details Section -->
 
